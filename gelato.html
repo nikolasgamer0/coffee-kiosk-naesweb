@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COFFEE KIOSK NAES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #000000, #000000);
+  color: #000000;
+  scroll-behavior: smooth;
+  text-align: center;
+  background-image: url('https://salcombedairy.co.uk/cdn/shop/articles/Ellie_Ice_Cream_4.jpg?v=1693915208&width=1600');
+}
+
+#splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#splash img {
+  width: 160px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
+
+h10 {
+font-size: 2.5rem;
+color: #ffffff;
+margin-bottom: 0.5rem;
+animation: fadeInDown 1s ease;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.custom-bar {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.custom-bar a {
+  color: #f7f1e3;
+  text-decoration: none;
+  font-size: 1.3rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.custom-bar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 10%;
+  background: #00ffea;
+  transition: width 0.3s ease;
+  font-size: 1rem;
+}
+
+.custom-bar a:hover {
+  color: #00aaff;
+  text-shadow: 0 0 5px #00aaff;
+  transform: scale(1.05);
+}
+
+.custom-bar a:hover::after {
+  width: 100%;
+}
+
+.logo {
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  animation: zoomIn 1s ease, breathing 4s infinite;
+}
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a img {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+.phone-button {
+  background-color: #000000;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.phone-button:hover {
+  background-color: #43a047;
+}
+
+.container {
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card h2 {
+  color: #6d4c41;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #444;
+}
+
+.menu-section {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.menu-section h3 {
+  color: #f2c94c;
+}
+
+.menu-section li {
+  margin-bottom: 0.4rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+input, select, textarea {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.btn, .efood {
+  background-color: #6d4c41;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #ff7043;
+}
+
+.efood {
+  background-color: #d32f2f;
+}
+
+.efood:hover {
+  background-color: #c62828;
+}
+
+iframe {
+  border: 0;
+  width: 100%;
+  height: 300px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background: #212121;
+  color: white;
+  padding: 2rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.confirmation {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  display: none;
+  animation: fadeIn 1s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .custom-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes breathing {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes pulse0112 {
+0%,
+100% {
+transform: scale(0);
+opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+}
+</style>
+</head>
+<body>
+  <!-- Splash Intro -->
+  <div id="splash">
+    <img src="logo.jpg" alt="Coffee Kiosk Logo">
+    <h10>Καλώς ήρθατε στο Gelato Kiosk NAES</h10>
+  </div>
+
+  <div class="header">
+    <img src="logo.jpg" alt="Coffee Kiosk Logo" class="logo" style="width: 100px;">
+    <div class="custom-bar">
+      <a href="coffee.html">☕ COFFEE</a>
+      <a href="kiosk.html">🚬 KIOSK</a>
+      <a href="gelato.html">🍨 GELATO</a>
+      </div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/coffeekiosknaes/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+      <a href="tel:+302421301877" class="phone-button">📞 +30 2421301877</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>GELATO KIOSK NAES</h1>
+    <p>Gelatery take away & delivery με γεύση και ποιότητα!</p>
+
+    <div class="card">
+      <h2>Μενού</h2>
+      <p>Ανακαλύψτε την Gelatery μας.</p>
+      <div class="menu-section">
+        <h3>Παγοτά</h3>
+        <ul>
+          <li>soon!</li>
+        </ul>
+        <h3>Ροφήματα</h3>
+        <ul>
+          <li>soon!</li>
+        </ul>
+        <h3>Βάβλες</h3>
+        <ul>
+          <li>soon!</li>
+          <li>soon!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Online Παραγγελία</h2>
+      <form id="orderForm" action="https://formspree.io/f/yourFormID" method="POST">
+        <label>Όνομα:<br><input type="text" name="name" required></label>
+        <label>Τηλέφωνο:<br><input type="tel" name="phone" required></label>
+        <label>Διεύθυνση:<br><input type="text" name="address" required></label>
+        <label>Παγοτό:<br>
+          <select name="product">
+            <option>ΤΙΠΟΤΑ</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+          </select>
+        </label>
+        <label>Ροφήμα:<br>
+          <select name="product">
+            <option>ΤΙΠΟΤΑ</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+            <option>soon</option>
+          </select>
+        </label>
+        <label>Βάβλα:<br>
+          <select name="product">
+            <option>ΤΙΠΟΤΑ</option>
+            <option>soon</option>
+          </select>
+        </label>
+        <label>Σχόλια:<br><textarea name="comments" rows="3"></textarea></label>
+        <button type="submit" class="btn">Αποστολή Παραγγελίας</button>
+        <div class="confirmation" id="confirmationMsg">✅ Η παραγγελία σας στάλθηκε με επιτυχία!</div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Παραγγελία μέσω πλατφόρμας</h2>
+      <div class="platform">
+      <a href="https://www.e-food.gr/delivery/volos/coffee-kiosk-naes-7754121" target="_blank"><img src="efood.png" alt="E-Food"></a>
+      <!--<a href="#" class="btn" style="margin-top: 0.5rem;">Παράγγειλε μέσω Wolt</a>!-->
+    </div>
+    </div>
+
+    <div class="card">
+      <h2>Τοποθεσία</h2>
+      <p>Επισκεφθείτε μας στον φυσικό μας χώρο.</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.229887552933!2d22.93313826880555!3d39.37367304926754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a76d7cb32e65bb%3A0xa81dc94508840807!2sCoffee%20Kiosk%20NAES!5e0!3m2!1sel!2sgr!4v1744726087204!5m2!1sel!2sgr"></iframe>
+    </div>
+
+    <footer>
+      © 2025 COFFEE KIOSK NAES. Όλα τα δικαιώματα διατηρούνται.
+    </footer>
+  </div>
+
+  <script>
+    // Splash screen fade-out
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash');
+      setTimeout(() => {
+        splash.style.opacity = '0';
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 1000);
+      }, 2000); // Fade out after 2 seconds
+    });
+
+    // Scroll animation for cards
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // Confirmation message
+    const form = document.getElementById('orderForm');
+    const confirmation = document.getElementById('confirmationMsg');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      confirmation.style.display = 'block';
+      setTimeout(() => {
+        confirmation.style.display = 'none';
+        form.reset();
+      }, 3000);
+    });
+  </script>
+  
+</body>
+</html>
